@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Destinations - Home</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- إضافة React و ReactDOM -->
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Explore the World</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="japan.html">Japan</a></li>
+                <li><a href="italy.html">Italy</a></li>
+                <li><a href="scotland.html">Scotland</a></li>
+                <li><a href="bookings.html">Bookings</a></li>
+                <li><a href="map.html">Interactive Map</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="Tips.html">Travel Tips</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="wrapper">
+        <main>
+            <section>
+                <h2>Welcome to Your Next Adventure!</h2>
+                <p>Are you ready to embark on a journey that will take you to the far corners of the globe? Our travel website is your ultimate guide to discovering the most breathtaking destinations around the world.</p>
+                <p>From the romantic canals of Venice to the serene gardens of Kyoto, every location offers unique experiences waiting to be explored. Dive into the rich culture, taste the exquisite cuisines, and immerse yourself in the local traditions.</p>
+                <p>Join us as we uncover hidden gems and popular attractions alike. Our expert recommendations will ensure you don’t miss a thing!</p>
+            </section>
+
+            <section>
+                <h2>Featured Destinations</h2>
+                <div class="destination-highlight">
+                    <h3>Italy - A Culinary Delight</h3>
+                    <p>Indulge in the culinary arts in Italy, where every meal is a celebration. From fresh pasta in Tuscany to gelato in Florence, experience flavors that will tantalize your taste buds.</p>
+                    
+                    <!-- مكون React للتقييم أسفل الوجهة -->
+                    <div id="react-rating-italy"></div>
+                    <script type="text/babel">
+                        // مكون React للتقييم
+                        const StarRating = ({ rating, onRatingChange }) => {
+                            const stars = [];
+                            for (let i = 1; i <= 5; i++) {
+                                stars.push(
+                                    <span 
+                                        key={i} 
+                                        onClick={() => onRatingChange(i)} 
+                                        style={{ cursor: 'pointer', color: i <= rating ? 'gold' : 'gray' }}
+                                    >
+                                        &#9733;
+                                    </span>
+                                );
+                            }
+                            return <div>{stars}</div>;
+                        };
+
+                        const ItalyRatingApp = () => {
+                            const [rating, setRating] = React.useState(0);
+
+                            const handleRatingChange = (newRating) => {
+                                setRating(newRating);
+                                alert(`You've rated Italy ${newRating} stars!`);
+                            };
+
+                            return <StarRating rating={rating} onRatingChange={handleRatingChange} />;
+                        };
+
+                        ReactDOM.render(<ItalyRatingApp />, document.getElementById('react-rating-italy'));
+                    </script>
+                </div>
+                <div class="destination-highlight">
+                    <h3>Japan - A Blend of Tradition and Modernity</h3>
+                    <p>In Japan, ancient temples stand side by side with futuristic skyscrapers. Discover the tranquil beauty of cherry blossoms and the vibrant energy of Tokyo's streets.</p>
+                    
+                    <!-- مكون React للتقييم أسفل الوجهة -->
+                    <div id="react-rating-japan"></div>
+                    <script type="text/babel">
+                        const JapanRatingApp = () => {
+                            const [rating, setRating] = React.useState(0);
+
+                            const handleRatingChange = (newRating) => {
+                                setRating(newRating);
+                                alert(`You've rated Japan ${newRating} stars!`);
+                            };
+
+                            return <StarRating rating={rating} onRatingChange={handleRatingChange} />;
+                        };
+
+                        ReactDOM.render(<JapanRatingApp />, document.getElementById('react-rating-japan'));
+                    </script>
+                </div>
+
+                <div class="destination-highlight">
+                    <h3>Scotland - Majestic Landscapes</h3>
+                    <p>Explore the rugged landscapes of Scotland, from the mystical Highlands to the enchanting lochs. Experience the rich history and folklore that permeate this stunning country.</p>
+
+                    <!-- مكون React للتقييم أسفل الوجهة -->
+                    <div id="react-rating-scotland"></div>
+                    <script type="text/babel">
+                        const ScotlandRatingApp = () => {
+                            const [rating, setRating] = React.useState(0);
+
+                            const handleRatingChange = (newRating) => {
+                                setRating(newRating);
+                                alert(`You've rated Scotland ${newRating} stars!`);
+                            };
+
+                            return <StarRating rating={rating} onRatingChange={handleRatingChange} />;
+                        };
+
+                        ReactDOM.render(<ScotlandRatingApp />, document.getElementById('react-rating-scotland'));
+                    </script>
+                </div>
+            </section>
+
+            <section>
+                <h2>Plan Your Trip Today!</h2>
+                <p>Don’t wait any longer! Start planning your adventure with us today. Check out our interactive map to find your next destination and make unforgettable memories.</p>
+                <p>Need assistance? Our dedicated team is here to help you with all your travel needs. From bookings to personalized recommendations, we’ve got you covered!</p>
+                <p>Visit our <a href="contact.html">Contact Us</a> page to reach out with any inquiries.</p>
+            </section>
+        </main>
+    </div> 
+
+    <footer>
+        <p>&copy; 2025 Explore the World</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Italy - Travel Explorer</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- إضافة React و ReactDOM -->
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Italy</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="japan.html">Japan</a></li>
+                <li><a href="italy.html">Italy</a></li>
+                <li><a href="scotland.html">Scotland</a></li>
+                <li><a href="bookings.html">Bookings</a></li>
+                <li><a href="map.html">Interactive Map</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="Tips.html">Travel Tips</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>        
+        </nav>
+    </header>
+
+    <div class="wrapper">
+        <main>
+            <section>
+                <h2>Tourist Destinations in Italy</h2>
+                <h3>Adventure</h3>
+                <p>Enjoy cycling tours in Tuscany and explore breathtaking landscapes.</p>
+                <p>Hiking in the Dolomites: Discover stunning hiking trails with breathtaking views of the Dolomite Mountains. </p>
+                <p>Canyoning in the Sorgente del Fiume Verde: Engage in an exhilarating canyoning adventure through natural canyons and waterfalls.</p>
+                <h3>Culture</h3>
+                <p>Visit the Colosseum in Rome and immerse yourself in Roman history.</p>
+                <p>Explore the Vatican Museums: Take a guided tour of the Vatican Museums and see masterpieces like the Sistine Chapel.</p>
+                <p>Attend an Opera at La Scala: Experience world-class performances at Milan’s renowned La Scala opera house.</p>
+                <h3>Nature</h3>
+                <p>Experience the beauty of Lake Como and Lake Garda.</p>
+                <p>Visit the Amalfi Coast: Marvel at the stunning coastal scenery, charming villages, and beautiful hiking paths along the Amalfi Coast.</p>
+                <p> Discover the Trentino-Alto Adige Region: Explore lush valleys, picturesque lakes, and majestic mountains in this beautiful northern region</p>
+
+                <h2>Explore Italy's Rich Culture and Cuisine</h2>
+                <h3>Traditional Cuisine</h3>
+                <p>Italy’s culinary tradition is as diverse as its regions, offering unique flavors and dishes. From Naples’ wood-fired pizza Margherita to Bologna’s rich Bolognese sauce, Italian cuisine is a true delight.</p>
+                <ul>
+                    <li><strong>Risotto:</strong> A creamy rice dish, often made with saffron or seafood.</li>
+                    <li><strong>Gelato:</strong> Italy’s world-famous ice cream, offering rich flavors like pistachio and chocolate.</li>
+                    <li><strong>Pizza:</strong> A flat round base topped with tomato sauce, cheese, and various toppings, originating from Naples.</li>
+                </ul>
+
+                <h3>Historic Landmarks</h3>
+                <p>Italy is home to some of the most iconic historical sites, including:</p>
+                <ul>
+                    <li><strong>The Colosseum:</strong> An ancient Roman amphitheater located in Rome.</li>
+                    <li><strong>Leaning Tower of Pisa:</strong> A freestanding bell tower known for its unintended tilt.</li>
+                    <li><strong>Duomo di Milano:</strong> A magnificent cathedral in Milan, known for its stunning Gothic architecture, taking nearly six centuries to complete, starting in 1386.</li>
+                </ul>
+
+                <h3>Why Visit Italy?</h3>
+                <p>With its blend of history, art, and cuisine, Italy offers something for every traveler. From the romantic canals of Venice to the rolling hills of Tuscany, it is a country filled with unforgettable experiences.</p>
+            </section>
+
+            <!-- إضافة التقييم بنظام النجوم في أسفل الصفحة -->
+            <section>
+                <h2>How Useful Was the Information?</h2>
+                <div id="react-rating-container"></div>
+
+                <script type="text/babel">
+                    const StarRating = ({ rating, onRatingChange }) => {
+                        const stars = [];
+                        for (let i = 1; i <= 5; i++) {
+                            stars.push(
+                                <span 
+                                    key={i} 
+                                    onClick={() => onRatingChange(i)} 
+                                    style={{ cursor: 'pointer', color: i <= rating ? 'gold' : 'gray' }}
+                                >
+                                    &#9733;
+                                </span>
+                            );
+                        }
+                        return <div>{stars}</div>;
+                    };
+
+                    const RatingApp = () => {
+                        const [rating, setRating] = React.useState(0);
+
+                        const handleRatingChange = (newRating) => {
+                            setRating(newRating);
+                            alert(`You've rated the information as ${newRating} stars!`);
+                        };
+
+                        return <StarRating rating={rating} onRatingChange={handleRatingChange} />;
+                    };
+
+                    ReactDOM.render(<RatingApp />, document.getElementById('react-rating-container'));
+                </script>
+            </section>
+
+        </main>
+    </div> 
+
+    <footer>
+        <p>&copy; 2024 Travel Explorer</p>
+    </footer>
+
+</body>
+</html>
